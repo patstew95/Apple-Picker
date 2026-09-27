@@ -40,5 +40,12 @@ public class Basket : MonoBehaviour
             scoreCounter.score += 100;
             HighScore.TRY_SET_HIGH_SCORE( scoreCounter.score);
         }
+        else if( collidedWith.CompareTag("Branch"))
+        {
+            //catching a branch ends the game immediately
+            Destroy(collidedWith);
+            ApplePicker apScript = Camera.main.GetComponent<ApplePicker>();
+            apScript.GameOver();
+        }
     }
 }
